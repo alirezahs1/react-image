@@ -330,7 +330,7 @@ export default class ImgPreview extends PureComponent<{}, PreviewState> {
       scale = windowWidth / width
     }
     if (height > windowHeight) {
-      scale = (scale * windowHeight) / height
+	  scale = Math.min(scale, windowHeight / height);
     }
     this.setState(
       {
